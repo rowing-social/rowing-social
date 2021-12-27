@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <link rel="preconnect" href="https://unpkg.com" crossorigin="anonymous" />
     <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0" />
-    <title>Social rowing</title>
-    <meta name="Description" content="Community around rowing">
+    <title>rowing://social</title>
+    <meta name="Description" content="The #1 app for rowing - rowing://social">
     <link rel="stylesheet" href="https://unpkg.com/reset-css@5.0.1/reset.css" integrity="sha384-qoxMy9gfnuqFOVWKbaNqPegWvL8Frde534RWnKHrd4mva36X9PKBshkDCCjni3Qj" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/pollen-css@4.2.0/pollen.css" integrity="sha384-e3TF5LDolOFc/ySMhOSev/j23n/iDbg9r/CJmNj17898DFuJG7e7hCLDVaFONJA1" crossorigin="anonymous" />
     <style>
@@ -14,21 +14,130 @@
       }
 
       body {
-        background-color: var(--color-grey-100);
         color: var(--color-grey-900);
+        background-color: var(--color-grey-100);
       }
 
       h1 {
         font-size: var(--scale-4);
-        font-family: var(--font-serif);
-        font-weight: var(--weight-bold);
+        font-family: var(--font-sans);
+        font-weight: var(--weight-medium);
         line-height: var(--line-xs);
         max-width: var(--prose-sm);
       }
 
+      h2 {
+        font-size: var(--scale-4);
+        font-family: var(--font-sans);
+        font-weight: var(--weight-regular);
+        line-height: var(--line-xs);
+        max-width: var(--prose-sm);
+      }
+
+      h3 {
+        font-size: var(--scale-3);
+        font-family: var(--font-sans);
+        font-weight: var(--weight-regular);
+        line-height: var(--line-xs);
+        max-width: var(--prose-sm);
+      }
+
+      p {
+        font-size: var(--scale-2);
+        font-family: var(--font-sans);
+        font-weight: var(--weight-regular);
+        line-height: var(--line-lg);
+        max-width: var(--prose-md);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--color-grey-900);
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      img {
+        object-fit: cover;
+      }
+
+      nav > ul > li {
+        font-size: var(--scale-3);
+        font-family: var(--font-sans);
+        font-weight: var(--weight-medium);
+        line-height: var(--line-xs);
+      }
+
+      .page {
+        display: grid;
+        grid-template-columns: var(--grid-page);
+      }
+
+      .page > * {
+        grid-column: var(--grid-page-main);
+      }
+
+      .page > .fullwidth {
+        grid-column: 1 / -1;
+      }
+
+      .flex-direction {
+        flex-direction: column;
+      }
+
+      @media (min-width: 480px) {
+        .flex-direction {
+          flex-direction: row;
+        }
+      }
+
     </style>
   </head>
-  <body>
-    <h1 style="margin: var(--size-4) var(--size-4);">rowing.social</h1>
+  <body class="page">
+    <nav class="fullwidth flex-direction" style="display: flex; justify-content: space-between; align-items: center; gap: var(--size-3); white-space: nowrap; padding: var(--size-5) var(--size-6); background-color: var(--color-teal-300);">
+      <div>
+        <h1 style="display: inline-block;">rowing://social</h1>
+      </div>
+      <ul style="display: flex; gap: var(--size-6); align-items: center;">
+        <li><a href="#signin">Sign In</a></li>
+        <li style="font-weight: var(--weight-bold);"><a href="#signup">Sign Up</a></li>
+      </ul>
+    </nav>
+
+    <div style="height: var(--size-6);"></div>
+
+    <main>
+      <h2>The #1 app for rowing, <span style="color: var(--color-teal-500);">made by rowers for rowers.</span></h2>
+
+      <div style="height: var(--size-6);"></div>
+
+      <div class="flex-direction" style="display: flex; align-items: center; align-content: center; gap: var(--size-6) var(--size-1);">
+        <div style="display: flex; flex-direction: column; gap: var(--size-6); flex: 1">
+          <div>
+            <h3>Train</h3>
+            <p>Stay in line with your individual plan</p>
+          </div>
+          <div>
+            <h3>Compete</h3>
+            <p>Compare yourself against friends</p>
+          </div>
+          <div>
+            <h3>Share</h3>
+            <p>Make waves by sharing your progress</p>
+          </div>
+        </div>
+        <div style="flex: 2">
+          <img style="max-width: 100%" src="hero.svg" />
+        </div>
+      <div>
+    </main>
+
+    <div style="height: var(--size-6);"></div>
+
+    <footer>
+    </footer>
+
   </body>
 </html>

@@ -21,7 +21,7 @@
       h1 {
         font-size: var(--scale-4);
         font-family: var(--font-sans);
-        font-weight: var(--weight-medium);
+        font-weight: var(--weight-bold);
         line-height: var(--line-xs);
         max-width: var(--prose-sm);
       }
@@ -29,7 +29,7 @@
       h2 {
         font-size: var(--scale-4);
         font-family: var(--font-sans);
-        font-weight: var(--weight-regular);
+        font-weight: var(--weight-medium);
         line-height: var(--line-xs);
         max-width: var(--prose-sm);
       }
@@ -37,7 +37,7 @@
       h3 {
         font-size: var(--scale-3);
         font-family: var(--font-sans);
-        font-weight: var(--weight-regular);
+        font-weight: var(--weight-medium);
         line-height: var(--line-xs);
         max-width: var(--prose-sm);
       }
@@ -63,6 +63,20 @@
         object-fit: cover;
       }
 
+      blockquote > p {
+        quotes: "„" "“";
+        font-style: italic;
+        font-size: var(--scale-3);
+      }
+
+      blockquote > p::before {
+        content: open-quote;
+      }
+
+      blockquote > p::after {
+        content: close-quote;
+      }
+
       nav > ul > li {
         font-size: var(--scale-3);
         font-family: var(--font-sans);
@@ -83,20 +97,33 @@
         grid-column: 1 / -1;
       }
 
-      .flex-direction {
+      .vstack {
+        display: flex;
         flex-direction: column;
       }
 
+      .hstack {
+        display: flex;
+        flex-direction: row;
+      }
+
       @media (min-width: 480px) {
-        .flex-direction {
+        .vstack {
           flex-direction: row;
         }
+        .hstack {
+          flex-direction: column;
+        }
+      }
+
+      .spacer {
+        flex: 1;
       }
 
     </style>
   </head>
   <body class="page">
-    <nav class="fullwidth flex-direction" style="display: flex; justify-content: space-between; align-items: center; gap: var(--size-3); white-space: nowrap; padding: var(--size-5) var(--size-6); background-color: var(--color-teal-300);">
+    <nav class="fullwidth vstack" style="display: flex; justify-content: space-between; align-items: center; gap: var(--size-3); white-space: nowrap; padding: var(--size-5) var(--size-6); background-color: var(--color-teal-300);">
       <div>
         <h1 style="display: inline-block;">rowing://social</h1>
       </div>
@@ -106,14 +133,14 @@
       </ul>
     </nav>
 
-    <div style="height: var(--size-6);"></div>
+    <div style="height: var(--size-8);"></div>
 
     <main>
       <h2>The #1 app for rowing, <span style="color: var(--color-teal-500);">made by rowers for rowers.</span></h2>
 
-      <div style="height: var(--size-6);"></div>
+      <div style="height: var(--size-8);"></div>
 
-      <div class="flex-direction" style="display: flex; align-items: center; align-content: center; gap: var(--size-6) var(--size-1);">
+      <div class="vstack" style="display: flex; align-items: center; align-items: start; gap: var(--size-6) var(--size-6);">
         <div style="display: flex; flex-direction: column; gap: var(--size-6); flex: 1">
           <div>
             <h3>Train</h3>
@@ -129,15 +156,59 @@
           </div>
         </div>
         <div style="flex: 2">
-          <img style="max-width: 100%" src="hero.svg" />
+          <img style="max-width: clamp(var(--size-80), 100%, 75vh);" src="images/hero.svg" />
         </div>
-      <div>
+      </div>
+
     </main>
 
-    <div style="height: var(--size-6);"></div>
+    <div style="height: var(--size-24);"></div>
 
-    <footer>
-    </footer>
+    <div class="fullwidth" style="background-color: var(--color-teal-300);">
+      <div class="vstack" style="display: flex; flex-wrap: wrap; justify-content: center; gap: var(--size-24); padding: var(--size-24) var(--size-10)">
+
+        <figure style="max-width: var(--size-80)">
+          <img src="images/img-2-640.jpg" srcset="images/img-2-640.webp 640w, images/img-2-640.jpg 640w, images/img-2-1280.webp 1280w, images/img-2-1280.jpg 1280w" sizes="(max-width: 640px) 640px, 1280px" style="width: var(--size-80); height: var(--size-80); box-shadow: var(--elevation-4); border-radius: var(--radius-100);" loading="lazy"/>
+          <div style="height: var(--size-4);"></div>
+          <figcaption>
+            <blockquote>
+              <p>rowing.social is my favorite app for staying on track.</p>
+            </blockquote>
+          </figcaption>
+        </figure>
+
+        <figure style="max-width: var(--size-80)">
+          <img src="images/img-3-640.jpg" srcset="images/img-3-640.webp 640w, images/img-3-640.jpg 640w, images/img-3-1280.webp 1280w, images/img-3-1280.jpg 1280w" sizes="(max-width: 640px) 640px, 1280px" style="width: var(--size-80); height: var(--size-80); box-shadow: var(--elevation-4); border-radius: var(--radius-100);" loading="lazy"/>
+          <div style="height: var(--size-4);"></div>
+          <figcaption>
+            <blockquote>
+              <p>I love its competitiveness! Immensely motivating!</p>
+            </blockquote>
+          </figcaption>
+        </figure>
+
+        <figure style="max-width: var(--size-80)">
+          <img src="images/img-4-640.jpg" srcset="images/img-4-640.webp 640w, images/img-4-640.jpg 640w, images/img-4-1280.webp 1280w, images/img-4-1280.jpg 1280w" sizes="(max-width: 640px) 640px, 1280px" style="width: var(--size-80); height: var(--size-80); box-shadow: var(--elevation-4); border-radius: var(--radius-100);" loading="lazy"/>
+          <div style="height: var(--size-4);"></div>
+          <figcaption>
+            <blockquote>
+              <p>Stoked! I was missing this app in my rowing life!</p>
+            </blockquote>
+          </figcaption>
+        </figure>
+
+        <figure style="max-width: var(--size-80)">
+          <img src="images/img-5-640.jpg" srcset="images/img-5-640.webp 640w, images/img-5-640.jpg 640w, images/img-5-1280.webp 1280w, images/img-5-1280.jpg 1280w" sizes="(max-width: 640px) 640px, 1280px" style="width: var(--size-80); height: var(--size-80); box-shadow: var(--elevation-4); border-radius: var(--radius-100);" loading="lazy"/>
+          <div style="height: var(--size-4);"></div>
+          <figcaption>
+            <blockquote>
+              <p>The folks at rowing.social know how to design apps!</p>
+            </blockquote>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
 
   </body>
 </html>

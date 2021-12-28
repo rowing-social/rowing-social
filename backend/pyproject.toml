@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "app"
+version = "0.1.0"
+description = ""
+authors = ["Uğur Çayoğlu <cayoglu@me.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "^1.1.2"
+gunicorn = {extras = ["gevent"], version = "^20.0.4"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.4"

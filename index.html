@@ -21,7 +21,7 @@
       h1 {
         font-size: var(--scale-4);
         font-family: var(--font-sans);
-        font-weight: var(--weight-bold);
+        font-weight: var(--weight-medium);
         line-height: var(--line-xs);
         max-width: var(--prose-sm);
       }
@@ -80,7 +80,7 @@
       nav > ul > li {
         font-size: var(--scale-3);
         font-family: var(--font-sans);
-        font-weight: var(--weight-medium);
+        font-weight: var(--weight-regular);
         line-height: var(--line-xs);
       }
 
@@ -107,7 +107,7 @@
         flex-direction: row;
       }
 
-      @media (min-width: 480px) {
+      @media (min-width: 640px) {
         .vstack {
           flex-direction: row;
         }
@@ -120,6 +120,21 @@
         flex: 1;
       }
 
+      .badge {
+        display: inline-block;
+        white-space: nowrap;
+        font-size: var(--scale-0);
+        font-family: var(--font-sans);
+        font-weight: var(--weight-medium);
+        line-height: var(--line-xs);
+        padding: var(--size-1) var(--size-2);
+        background-color: var(--color-teal-300);
+        color: var(--color-teal-700);
+        border-radius: var(--radius-full);
+        text-transform: uppercase;
+        letter-spacing: var(--letter-lg);
+      }
+
     </style>
   </head>
   <body class="page">
@@ -129,19 +144,18 @@
       </div>
       <ul style="display: flex; gap: var(--size-6); align-items: center;">
         <li><a href="#signin">Sign In</a></li>
-        <li style="font-weight: var(--weight-bold);"><a href="#signup">Sign Up</a></li>
+        <li style="font-weight: var(--weight-medium);"><a href="#signup">Sign Up</a></li>
       </ul>
     </nav>
 
     <div style="height: var(--size-8);"></div>
 
     <main>
-      <h2>The #1 app for rowing, <span style="color: var(--color-teal-500);">made by rowers for rowers.</span></h2>
-
-      <div style="height: var(--size-8);"></div>
+      <h2>The #1 app for rowing <span style="color: var(--color-teal-500);">made by rowers for rowers.</span></h2>
 
       <div class="vstack" style="display: flex; align-items: center; align-items: start; gap: var(--size-6) var(--size-6);">
         <div style="display: flex; flex-direction: column; gap: var(--size-6); flex: 1">
+          <div style="height: var(--size-8);"></div>
           <div>
             <h3>Train</h3>
             <p>Stay in line with your individual plan</p>
@@ -151,7 +165,10 @@
             <p>Compare yourself against friends</p>
           </div>
           <div>
-            <h3>Share</h3>
+            <div style="display: flex; gap: var(--size-2); align-items: center;">
+              <h3>Share</h3>
+              <span class="badge">New</span>
+            </div>
             <p>Make waves by sharing your progress</p>
           </div>
         </div>

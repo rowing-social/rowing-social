@@ -8,6 +8,8 @@ authors = ["Uğur Çayoğlu <cayoglu@me.com>"]
 python = "^3.8"
 flask = "^1.1.2"
 gunicorn = {extras = ["gevent"], version = "^20.0.4"}
+Flask-SQLAlchemy = "^2.5.1"
+psycopg2 = "^2.9.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^3.4"

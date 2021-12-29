@@ -12,6 +12,10 @@ db.create_all()
 def hello_world():
     return "Hello, World!"
 
+###########
+## Users ##
+###########
+
 @app.route("/users", methods=['GET'])
 def get_users():
     users = User.query.all()

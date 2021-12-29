@@ -42,7 +42,11 @@ class Session(db.Model):
             "id": self.id,
             "user_id":self.user_id,
             "distance":self.distance,
-            "date": self.datetime
+            "datetime": self.datetime,
+            "kcal": self.kcal,
+            "strokerate": self.strokerate,
+            "duration": self.duration,
+            "intensity": self.intensity,
         }
 
 class Team(db.Model):

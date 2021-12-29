@@ -15,7 +15,7 @@ def hello_world():
 @app.route("/users", methods=['GET'])
 def get_users():
     users = User.query.all()
-    users = [{"id": x.id, "name":x.name, "email":x.email} for x in users]
+    users = [x.to_dict() for x in users]
     return jsonify(users)
 
 @app.route("/users", methods=['POST'])

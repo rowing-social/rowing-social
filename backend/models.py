@@ -18,16 +18,32 @@ class User(db.Model):
     teams = db.relationship('Team', secondary=membership, lazy='subquery',
                 backref=db.backref('users', lazy=True))
 
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name":self.name,
+            "email":self.email
+        }
+
 class Session(db.Model):
     __tablename__ = "session"
     id = db.Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id = db.Column(UUID(as_uuid=True), db.ForeignKey('user.id'), nullable=False)
     distance = db.Column(db.Float, nullable=False)
     datetime = db.Column(db.DateTime, nullable=False)
+    # nullable values follow
     kcal = db.Column(db.Integer, nullable=True)
     strokerate = db.Column(db.Float, nullable=True)
     duration = db.Column(db.Float, nullable=True)
     intensity = db.Column(db.Float, nullable=True)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "user_id":self.user_id,
+            "distance":self.distance,
+            "date": self.datetime
+        }
 
 class Team(db.Model):
     __tablename__ = "team"

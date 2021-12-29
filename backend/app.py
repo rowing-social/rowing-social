@@ -43,7 +43,7 @@ def post_users():
 @app.route("/users/<user_id>", methods=['GET'])
 def get_user_by_id(user_id):
     user = User.query.filter_by(id=user_id).first_or_404()
-    user = {"id": user.id, "name": user.name, "email": user.email}
+    user = user.to_dict(sessions=True)
     return jsonify(user)
 
 ##############

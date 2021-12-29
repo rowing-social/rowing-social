@@ -18,12 +18,15 @@ class User(db.Model):
     teams = db.relationship('Team', secondary=membership, lazy='subquery',
                 backref=db.backref('users', lazy=True))
 
-    def to_dict(self):
-        return {
+    def to_dict(self, sessions=False):
+        ret = {
             "id": self.id,
             "name":self.name,
-            "email":self.email
+            "email":self.email,
         }
+        if sessions:
+            ret["sessions"] = [x.to_dict() for x in self.sessions]
+        return ret
 
 class Session(db.Model):
     __tablename__ = "session"
